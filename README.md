@@ -452,7 +452,6 @@ python tests/test_alignment.py
 ```
 
 Output will show:
-- ✓ PASSED tests
 - Test coverage across all modules
 - Summary statistics
 
@@ -463,12 +462,6 @@ Output will show:
 - Schema fallback response generation is intentionally simple compared with real LLM generation.
 - No user feedback mechanism yet
 
-## References
-
-- **RLHF**: Christiano et al., "Deep reinforcement learning from human preferences"
-- **DPO**: Rafailov et al., "Direct Preference Optimization"
-- **Embeddings**: Devlin et al., "BERT: Pre-training of Deep Bidirectional Transformers"
-- **Retrieval**: Karpukhin et al., "Dense Passage Retrieval for Open-Domain Question Answering"
 
 ## License
 
