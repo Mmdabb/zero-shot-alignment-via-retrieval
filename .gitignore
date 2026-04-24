@@ -1,7 +1,28 @@
+# Environment variables (DO NOT COMMIT)
 .env
+
+# Logs
 logs/
+*.log
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Pytest
 .pytest_cache/
+
+# Virtual environments
 .venv/
 venv/
+env/
+
+# VS Code settings (optional but usually ignored)
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Old development folder
+old/
