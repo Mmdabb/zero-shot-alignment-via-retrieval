@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zero-Shot Alignment Demo</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">CSE 579 KRR Project Demo</p>
+        <h1>Zero-Shot Alignment via Retrieval</h1>
+        <p class="subtitle">
+          Enter a query, retrieve the closest communication style, and generate a style-aligned response.
+        </p>
+      </div>
+      <div class="status-card">
+        <span class="status-dot"></span>
+        <span>Python backend active</span>
+      </div>
+    </section>
+
+    {% if import_error %}
+    <section class="error-card">
+      <h2>Backend Import Error</h2>
+      <p>The Flask app could not import your alignment package.</p>
+      <pre>{{ import_error }}</pre>
+      <p>Run the app from the project root using <code>python web_demo/app.py</code>.</p>
+    </section>
+    {% endif %}
+
+    <section class="layout">
+      <div class="card">
+        <h2>Input</h2>
+
+        <div class="examples">
+          <button type="button" data-example="formal">Formal email</button>
+          <button type="button" data-example="technical">Technical explanation</button>
+          <button type="button" data-example="casual">Casual explanation</button>
+          <button type="button" data-example="friendly">Friendly explanation</button>
+        </div>
+
+        <label for="prompt">User Query</label>
+        <textarea id="prompt" rows="5">Explain gradient descent in a technical way.</textarea>
+
+        <label for="response">Optional Base Response Override</label>
+        <p class="helper-text">Leave this empty to let the system generate a neutral base response automatically.</p>
+        <textarea id="response" rows="5" placeholder="Optional override text"></textarea>
+
+        <button id="runBtn" class="primary-btn">Run Alignment</button>
+      </div>
+
+      <div class="card">
+        <h2>Live Result</h2>
+
+        <div class="result-row">
+          <span class="label">Retrieved Style</span>
+          <span id="bestStyle" class="pill">-</span>
+        </div>
+
+        <div class="result-row">
+          <span class="label">Base Provider / Model</span>
+          <span id="baseProvider" class="pill wide-pill">-</span>
+        </div>
+
+        <div class="result-row">
+          <span class="label">Alignment Provider / Model</span>
+          <span id="alignmentProvider" class="pill wide-pill">-</span>
+        </div>
+
+        <div class="result-row">
+          <span class="label">Retrieval Model</span>
+          <span id="retrievalModel" class="pill wide-pill">-</span>
+        </div>
+
+        <div class="result-row">
+          <span class="label">Base Response Source</span>
+          <span id="baseSource" class="pill">-</span>
+        </div>
+
+        <h3>Top-k Similarity Scores</h3>
+        <div id="scores" class="scores"></div>
+
+        <h3>Base Response Before Alignment</h3>
+        <div id="baseResponse" class="output-box">Run the demo to generate the before-alignment response.</div>
+
+        <h3>Final Response After Alignment</h3>
+        <div id="styledResponse" class="output-box">Run the demo to generate the after-alignment response.</div>
+
+        <h3>Provider Attempts</h3>
+        <div id="providerAttempts" class="attempt-chain">-</div>
+
+        <h3>Log File Path</h3>
+        <div id="logFile" class="output-box small-output">-</div>
+      </div>
+    </section>
+
+    <section class="card full">
+      <h2>System Flow</h2>
+      <div class="pipeline">
+        <div class="step">Browser query</div>
+        <div class="arrow">-&gt;</div>
+        <div class="step">Provider chain generates neutral base</div>
+        <div class="arrow">-&gt;</div>
+        <div class="step">Style retrieval and provider rewrite</div>
+        <div class="arrow">-&gt;</div>
+        <div class="step">Transparent before/after result</div>
+      </div>
+
+      <h3>Style Prompt Augmentation</h3>
+      <div id="augmentation" class="output-box small-output">Run the demo to view the retrieved style instruction.</div>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
