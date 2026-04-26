@@ -1,0 +1,191 @@
+{
+  "dataset": {
+    "path": "/Users/ml/Downloads/KRR/data/eval_dataset.jsonl",
+    "size": 160,
+    "per_style_counts": {
+      "technical": 40,
+      "casual": 40,
+      "formal": 40,
+      "friendly": 40
+    }
+  },
+  "retrieval": {
+    "n": 160,
+    "top1_accuracy": 0.3375,
+    "top2_accuracy": 0.6438,
+    "per_style": {
+      "formal": {
+        "precision": 0.4286,
+        "recall": 0.3,
+        "support": 40
+      },
+      "casual": {
+        "precision": 0.2195,
+        "recall": 0.225,
+        "support": 40
+      },
+      "technical": {
+        "precision": 0.3182,
+        "recall": 0.175,
+        "support": 40
+      },
+      "friendly": {
+        "precision": 0.3768,
+        "recall": 0.65,
+        "support": 40
+      }
+    },
+    "confusion_matrix": {
+      "formal": {
+        "formal": 12,
+        "casual": 10,
+        "technical": 7,
+        "friendly": 11
+      },
+      "casual": {
+        "formal": 3,
+        "casual": 9,
+        "technical": 7,
+        "friendly": 21
+      },
+      "technical": {
+        "formal": 8,
+        "casual": 14,
+        "technical": 7,
+        "friendly": 11
+      },
+      "friendly": {
+        "formal": 5,
+        "casual": 8,
+        "technical": 1,
+        "friendly": 26
+      }
+    },
+    "retrieval_latency_ms": {
+      "mean": 10.801,
+      "p50": 7.667,
+      "p95": 21.969
+    }
+  },
+  "random_baseline": {
+    "n_runs": 50,
+    "mean_accuracy": 0.2487,
+    "stdev_accuracy": 0.0315
+  },
+  "keyword_baseline": {
+    "accuracy": 0.3187,
+    "per_style": {
+      "formal": {
+        "precision": 0.2436,
+        "recall": 0.475,
+        "support": 40
+      },
+      "casual": {
+        "precision": 0.25,
+        "recall": 0.1,
+        "support": 40
+      },
+      "technical": {
+        "precision": 0.7,
+        "recall": 0.175,
+        "support": 40
+      },
+      "friendly": {
+        "precision": 0.375,
+        "recall": 0.525,
+        "support": 40
+      }
+    },
+    "confusion_matrix": {
+      "formal": {
+        "formal": 19,
+        "casual": 4,
+        "technical": 3,
+        "friendly": 14
+      },
+      "casual": {
+        "formal": 25,
+        "casual": 4,
+        "technical": 0,
+        "friendly": 11
+      },
+      "technical": {
+        "formal": 20,
+        "casual": 3,
+        "technical": 7,
+        "friendly": 10
+      },
+      "friendly": {
+        "formal": 14,
+        "casual": 5,
+        "technical": 0,
+        "friendly": 21
+      }
+    },
+    "keyword_lists_size": {
+      "formal": 10,
+      "casual": 10,
+      "technical": 12,
+      "friendly": 12
+    }
+  },
+  "style_adherence": {
+    "per_style": {
+      "formal": {
+        "n": 40,
+        "avoid_rate_before": 0.025,
+        "avoid_rate_after": 0.0,
+        "prefer_rate_before": 0.0063,
+        "prefer_rate_after": 0.25,
+        "embedding_sim_before": 0.0458,
+        "embedding_sim_after": 0.1021,
+        "rewrite_latency_ms_mean": 0.009
+      },
+      "casual": {
+        "n": 40,
+        "avoid_rate_before": 0.0,
+        "avoid_rate_after": 0.0,
+        "prefer_rate_before": 0.0,
+        "prefer_rate_after": 0.3333,
+        "embedding_sim_before": 0.068,
+        "embedding_sim_after": 0.0842,
+        "rewrite_latency_ms_mean": 0.006
+      },
+      "technical": {
+        "n": 40,
+        "avoid_rate_before": 0.0417,
+        "avoid_rate_after": 0.025,
+        "prefer_rate_before": 0.015,
+        "prefer_rate_after": 0.015,
+        "embedding_sim_before": 0.0681,
+        "embedding_sim_after": 0.1236,
+        "rewrite_latency_ms_mean": 0.008
+      },
+      "friendly": {
+        "n": 40,
+        "avoid_rate_before": 0.0,
+        "avoid_rate_after": 0.0,
+        "prefer_rate_before": 0.0083,
+        "prefer_rate_after": 0.65,
+        "embedding_sim_before": 0.1019,
+        "embedding_sim_after": 0.2385,
+        "rewrite_latency_ms_mean": 0.007
+      }
+    },
+    "overall": {
+      "avoid_rate_before": 0.0167,
+      "avoid_rate_after": 0.0062,
+      "prefer_rate_before": 0.0074,
+      "prefer_rate_after": 0.3121,
+      "embedding_sim_before": 0.0709,
+      "embedding_sim_after": 0.1371,
+      "rewrite_latency_ms_mean": 0.007
+    }
+  },
+  "github_latency_sample": {
+    "n": 6,
+    "failures": 0,
+    "latency_ms_mean": 1906.4,
+    "latency_ms_p50": 2003.5
+  }
+}
