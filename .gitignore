@@ -26,3 +26,18 @@ Thumbs.db
 
 # Old development folder
 old/
+
+# Claude Code session state (per-developer)
+.claude/
+
+# Generated evaluation figures (regenerate via evaluation/plot_results.py)
+results/*.png
+
+# Slide builds (kept out of repo; reproduce locally if needed)
+slides/
+
+# Personal / non-team materials
+CLAUDE.md
+ed.md
+topic.md
+project_explanation_zh.md
